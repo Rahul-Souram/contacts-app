@@ -20,7 +20,7 @@ const ContactForm = ({ addContact }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="form-container">
       <input
         type="text"
         name="name"
@@ -37,7 +37,7 @@ const ContactForm = ({ addContact }) => {
         <option value="Business">Business</option>
         <option value="Business">Developer</option>
       </select>
-      <button type="submit">Add Contact</button>
+      <button type="submit" className="btn">Add Contact</button>
     </form>
   );
 };

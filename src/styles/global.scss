@@ -1,10 +1,22 @@
 * {
-    margin: 0;
-    padding: 0;
-    border: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 
 body {
-    background: rgb(74, 206, 74);
-    color: #fff;
+  background: rgb(74, 206, 74);
+  color: #fff;
+}
+
+.App {
+  display: flex;
+  margin-top: 2rem;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn {
+  background: blue;
 }
