@@ -1,7 +1,7 @@
 // src/components/Contact.js
 import React, { useState } from "react";
 
-const ContactItem = ({ item, updateContact, deleteContact }) => {
+const ContactItem = ({ item, updateContact, deleteContact, index }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedContact, setEditedContact] = useState(item);
 
@@ -15,12 +15,10 @@ const ContactItem = ({ item, updateContact, deleteContact }) => {
     setIsEditing(false);
   };
 
-  console.log(item);
-
   return (
     <div>
       {isEditing ? (
-        <div>
+        <div className="form-container">
           <input
             type="text"
             name="name"
@@ -43,18 +41,35 @@ const ContactItem = ({ item, updateContact, deleteContact }) => {
             <option value="Personal">Personal</option>
             <option value="Business">Business</option>
           </select>
-          <button onClick={handleEditSubmit} className="btn">Save</button>
+          <button onClick={handleEditSubmit} className="btn">
+            Save
+          </button>
+          <button
+            type="button"
+            className="btn-delete"
+            onClick={() => setIsEditing(false)}
+          >
+            cancel
+          </button>
         </div>
       ) : (
         <div className="details-container">
+          <span>{index + 1}</span>
           <span>{item?.name}</span>
           <span>({item?.gender})</span>
           <span>{item?.type}</span>
           <span>
-            <button onClick={() => setIsEditing(true)} className="btn">Edit</button>
+            <button onClick={() => setIsEditing(true)} className="btn">
+              Edit
+            </button>
           </span>
           <span>
-            <button onClick={() => deleteContact(item.id)} className="btn-delete">Delete</button>
+            <button
+              onClick={() => deleteContact(item.id)}
+              className="btn-delete"
+            >
+              Delete
+            </button>
           </span>
         </div>
       )}

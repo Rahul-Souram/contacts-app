@@ -24,12 +24,15 @@ const App = () => {
       <h1>Contact List</h1>
       <div>
         <ContactForm addContact={addContact} />
-        {contacts.map(item => {
-          console.log(item);
-          return (
-            <ContactItem item={item} updateContact={updateContact} deleteContact={deleteContact} />
-          )
-        })}
+        <div className='container'>
+          <div className='table-container'>
+            {contacts.map((item, index) => {
+              return (
+                <ContactItem item={item} index={index} updateContact={updateContact} deleteContact={deleteContact} />
+              )
+            })}
+          </div>
+        </div>
       </div>
     </div>
   );
